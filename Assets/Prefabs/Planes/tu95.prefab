@@ -1018,6 +1018,8 @@ MonoBehaviour:
   onGround: 0
   speed: 10
   airportShift: 0.836
+  tg: {fileID: 0}
+  terrainLength: 0
 --- !u!1 &3469953342185649907
 GameObject:
   m_ObjectHideFlags: 0

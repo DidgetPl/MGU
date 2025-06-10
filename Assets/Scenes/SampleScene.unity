@@ -167,6 +167,8 @@ MonoBehaviour:
   airport: {fileID: 2662874894381483039, guid: 231eb2916ae41ad4db3f99800a85e2c9, type: 3}
   road: {fileID: 2662874894381483039, guid: 787fe8fb50675694aa78f3b0bc768a1b, type: 3}
   planesParent: {fileID: 1002998758}
+  playerPosition: {x: 256, y: 256}
+  planeTargetDirectionModifier: 100
   planes:
   - {fileID: 1108308551450976643, guid: 4963d1ed02be3f04daf27fd6013d2db7, type: 3}
   - {fileID: 582374164235842558, guid: e253d17d7f9601c4eb8139e355cb2b33, type: 3}
@@ -431,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.12607859, y: 0.25660488, z: -0.03378266, w: 0.9576622}
-  m_LocalPosition: {x: 180, y: 30, z: 20}
+  m_LocalPosition: {x: 30, y: 30, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

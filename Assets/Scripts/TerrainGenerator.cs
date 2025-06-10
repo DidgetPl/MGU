@@ -34,6 +34,9 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] GameObject road;
     [SerializeField] GameObject planesParent;
 
+    [SerializeField] Vector2 playerPosition = Vector2.one * 256;
+    [SerializeField] float planeTargetDirectionModifier = 150f;
+
     [SerializeField] List<GameObject> planes = new List<GameObject>();
 
     float[,] heights;
@@ -139,24 +142,37 @@ public class TerrainGenerator : MonoBehaviour
         terrain.terrainData = GenerateTerrain(terrain.terrainData);
     }
 
-    void GeneratePlanes(int numOfPlanes)
+    public void GeneratePlanes(int numOfPlanes)
     {
         for (int i = 0; i < numOfPlanes; i++)
         {
             GameObject plane = Instantiate(planes[Random.Range(0, planes.Count)], planesParent.transform);
+            Transform planeT = plane.transform;
+            Plane planeP = plane.GetComponent<Plane>();
+
+            planeP.terrainLength = length;
+            planeP.tg = this;
 
             if (Random.Range(0f, 1f) > 0.35f)
             {
-                plane.GetComponent<Plane>().onGround = false;
-                plane.transform.position = new Vector3(Random.Range(0, length), Random.Range(25f, 100f), Random.Range(0, length));
+                planeP.onGround = false;
+                planeT.position = new Vector3(Random.Range(0, length), Random.Range(25f, 100f), Random.Range(0, length));
+
+                (float, float, LineType) line = LineMath.GetPerpendicularLineThroughB(new Vector2(planeT.position.x, planeT.position.z), playerPosition);
+                Vector2 vectorToLook;
+                float modifier = Random.Range(-planeTargetDirectionModifier, planeTargetDirectionModifier);
+                    vectorToLook = line.Item3 == LineType.Regular ?
+                        LineMath.GetPointsAlongLine(playerPosition, line.Item1, line.Item3, modifier)[Random.Range(0, 1)] :
+                        new Vector2(playerPosition.x, playerPosition.y + modifier);
+                planeT.LookAt(new Vector3(vectorToLook.x, planeT.position.y, vectorToLook.y));
             }
             else
             {
-                plane.GetComponent<Plane>().onGround = true;
+                planeP.onGround = true;
                 Vector2 hill = hillCenters[Random.Range(0, hillCenters.Count)];
-                plane.transform.position = new Vector3(hill.y, 16 + plane.GetComponent<Plane>().airportShift, hill.x) + new Vector3(Random.Range(-15, 15), 0, Random.Range(-15, 15));
+                planeT.position = new Vector3(hill.y, 16 + planeP.airportShift, hill.x) + new Vector3(Random.Range(-15, 15), 0, Random.Range(-15, 15));
+                planeT.rotation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
             }
-            plane.transform.rotation = Quaternion.Euler(Vector3.up * Random.Range(0f, 360f));
         }
     }
 

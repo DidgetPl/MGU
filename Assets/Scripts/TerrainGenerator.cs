@@ -38,6 +38,7 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] float planeTargetDirectionModifier = 150f;
 
     [SerializeField] List<GameObject> planes = new List<GameObject>();
+    [SerializeField] int numOfPlanes = 40;
 
     float[,] heights;
     List<Vector2> dir = new List<Vector2>() {Vector2.down, Vector2.left, Vector2.up, Vector2.right};
@@ -62,7 +63,7 @@ public class TerrainGenerator : MonoBehaviour
             CreateHill(Random.Range(50, length-50), Random.Range(50, length - 50));
 
         GenerateTerrain();
-        GeneratePlanes(50);
+        GeneratePlanes(numOfPlanes);
     }
 
     void CreateRandomStraightRoad()

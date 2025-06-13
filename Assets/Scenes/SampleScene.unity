@@ -178,6 +178,7 @@ MonoBehaviour:
   - {fileID: 2800730550404527599, guid: 85d461e6f0a127f4b8234dcd693443b3, type: 3}
   - {fileID: 3375013997807559138, guid: 95ea36d22439c3f4a9f8950ab9f5bf56, type: 3}
   - {fileID: 7249167716778386097, guid: d5ee03d3a7f44064d8cd6640a5b3bdfd, type: 3}
+  numOfPlanes: 25
 --- !u!154 &70898081
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -433,7 +434,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.12607859, y: 0.25660488, z: -0.03378266, w: 0.9576622}
-  m_LocalPosition: {x: 30, y: 30, z: 9}
+  m_LocalPosition: {x: 256, y: 30, z: 256}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -454,6 +455,7 @@ MonoBehaviour:
   moveSpeed: 60
   verticalSpeed: 15
   mouseSensitivity: 2
+  canMove: 0
 --- !u!1 &1002998758
 GameObject:
   m_ObjectHideFlags: 0

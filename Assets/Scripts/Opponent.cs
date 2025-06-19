@@ -45,15 +45,7 @@ public class Opponent : MonoBehaviour
 
             foreach(string planeName in GameManager.targets)
                 if (currentTarget.name.Contains(planeName) && !targetSpotted[planeName])
-                {
                     targetSpotted[planeName] = Random.Range(0f, 1f) > 0.6f;
-                    string message = "";
-                    foreach(bool value in targetSpotted.Values)
-                    {
-                        message += value.ToString() + " ";
-                    }
-                    Debug.Log(message);
-                }
         }
 
         currentTarget = null;

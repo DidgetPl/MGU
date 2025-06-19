@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -22,6 +23,18 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        #region hejaho
+
+        string projectRoot = Directory.GetParent(Application.dataPath).FullName;
+        string folderPath = Path.Combine(projectRoot, "Screenshots");
+        if (Directory.Exists(folderPath))
+        {
+            string[] files = Directory.GetFiles(folderPath);
+            screenshotCount = files.Length;
+        }
+        #endregion
+
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 

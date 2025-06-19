@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
         Player player = FindObjectOfType<Player>().GetComponent<Player>();
         while(targets.Count() < 4)
         {
-            string newTarget = planeNames[Random.Range(0, planeNames.Count() - 1)];
+            string newTarget = planeNames[Random.Range(0, planeNames.Count())];
+            Debug.Log("HEJAHO " + newTarget);
             if (!targets.Contains(newTarget))
                 targets.Add(newTarget);
         }

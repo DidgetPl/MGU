@@ -20,7 +20,6 @@ public static class LineMath
 
         if (direction == Vector2.zero)
         {
-            Debug.LogError("Punkty A i B s¹ identyczne – nie mo¿na wyznaczyæ prostej.");
             a = 0;
             b_or_const = 0;
         }

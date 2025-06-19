@@ -2760,9 +2760,10 @@ GameObject:
   - component: {fileID: 763958556128800050}
   - component: {fileID: -8362929942035365305}
   - component: {fileID: 6788060888118545787}
+  - component: {fileID: 7788586363798545556}
   m_Layer: 0
   m_Name: Su-27
-  m_TagString: Untagged
+  m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2902,6 +2903,27 @@ MonoBehaviour:
   airportShift: 0
   tg: {fileID: 0}
   terrainLength: 0
+--- !u!65 &7788586363798545556
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967263723538348589}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1000, y: 1, z: 1000}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4143949791862666340
 GameObject:
   m_ObjectHideFlags: 0

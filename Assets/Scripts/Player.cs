@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class SimpleFreeCamera : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float verticalSpeed = 5f;
@@ -17,6 +18,7 @@ public class SimpleFreeCamera : MonoBehaviour
 
     private Camera cam;
     private int screenshotCount = 0;
+    [HideInInspector] public Dictionary<string, bool> targetSpotted = new Dictionary<string, bool>();
 
     void Start()
     {

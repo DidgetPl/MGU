@@ -157,7 +157,7 @@ public class TerrainGenerator : MonoBehaviour
             if (Random.Range(0f, 1f) > 0.35f)
             {
                 planeP.onGround = false;
-                planeT.position = new Vector3(Random.Range(0, length), Random.Range(25f, 100f), Random.Range(0, length));
+                planeT.position = new Vector3(Random.Range(0, length), Random.Range(55f, 100f), Random.Range(0, length));
 
                 (float, float, LineType) line = LineMath.GetPerpendicularLineThroughB(new Vector2(planeT.position.x, planeT.position.z), playerPosition);
                 Vector2 vectorToLook;

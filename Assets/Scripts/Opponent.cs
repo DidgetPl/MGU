@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 [RequireComponent(typeof(Collider))]
 public class Opponent : MonoBehaviour
@@ -10,6 +11,12 @@ public class Opponent : MonoBehaviour
     [HideInInspector] public Dictionary<string, bool> targetSpotted = new Dictionary<string, bool>();
 
     bool isSwitching = false;
+    NotificationManager nm;
+
+    private void Start()
+    {
+        nm = FindObjectOfType<NotificationManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,7 +52,16 @@ public class Opponent : MonoBehaviour
 
             foreach(string planeName in GameManager.targets)
                 if (currentTarget.name.Contains(planeName) && !targetSpotted[planeName])
+                {
                     targetSpotted[planeName] = Random.Range(0f, 1f) > 0.6f;
+                    if (targetSpotted[planeName])
+                    {
+                        int sum = targetSpotted.Values.Sum(v => v ? 1 : 0);
+                        nm.ShowNotification($"Przeciwnik znalaz³ {sum} na 4 cele!");
+                        if (sum == 4) FindObjectOfType<GameManager>().Endgame(false);
+                    }
+
+                }
         }
 
         currentTarget = null;

@@ -63,7 +63,18 @@ public class TerrainGenerator : MonoBehaviour
             CreateHill(Random.Range(50, length-50), Random.Range(50, length - 50));
 
         GenerateTerrain();
-        GeneratePlanes(numOfPlanes);
+        if (numOfPlanes > 20)
+        {
+            GeneratePlanes(numOfPlanes - 10);
+            StartCoroutine(GeneratePlanesWithDelayCoroutine(10, 15f));
+        }
+        else GeneratePlanes(numOfPlanes);
+    }
+
+    IEnumerator GeneratePlanesWithDelayCoroutine(int num, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GeneratePlanes(num);
     }
 
     void CreateRandomStraightRoad()

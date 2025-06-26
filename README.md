@@ -1,4 +1,9 @@
-[tu wstaw wyjaśnienie czym jest projekt]
+Projekt ten jest implementacją gry o nazwie "Plane Photo". Utworzony został w Unity i wykorzystuje uczenie maszynowe.
+
+Rozgrywka toczy się na losowo generowanej, trójwymiarowej mapie. Znajdują się na niej proste drogi, pagórki i lotniska. Nad terenem latają również samoloty, w losowych kierunkach, ale wszystkie przelatują stosunkowo blisko gracza. Ten może wykonać im zdjęcie, w postaci zrzutu ekranu.
+
+Celem gry jest wykonanie zdjęcia czterem ustalonym modelom samolotu. Gracz wygrywa, jeśli zrobi to szybciej niż jego komputerowy przeciwnik.
+
 
 # Sposób uruchomienia
 

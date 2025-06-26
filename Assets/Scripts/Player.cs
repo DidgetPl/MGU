@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private Camera cam;
     private int screenshotCount = 0;
     [HideInInspector] public Dictionary<string, bool> targetSpotted = new Dictionary<string, bool>();
-    string pythonScriptPath = "Assets/Python/classify_image.py";
+    string pythonScriptPath = "Python/classify_image.py";
     private string tempPath = "TempScreenshots";
 
     public GameObject uiRoot;
@@ -35,6 +35,10 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+#if UNITY_EDITOR
+        pythonScriptPath = "Assets/Python/classify_image.py";
+#endif
+        Directory.CreateDirectory(tempPath);
         gm = FindObjectOfType<GameManager>();
         string projectRoot = Directory.GetParent(Application.dataPath).FullName;
         string screenshotFolderPath = Path.Combine(projectRoot, "TempScreenshots");
@@ -85,6 +89,9 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
             StartCoroutine(CaptureScreenshotCoroutine());
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     private IEnumerator CaptureScreenshotCoroutine()

@@ -11,9 +11,9 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 folder = os.path.dirname(os.path.abspath(__file__))
 
 train_gen = ImageDataGenerator(rescale=1./255,
-                               rotation_range=15,
-                               zoom_range=0.1,
-                               horizontal_flip=True)
+                            rotation_range=15,
+                            zoom_range=0.1,
+                            horizontal_flip=True)
 
 val_gen = ImageDataGenerator(rescale=1./255)
 

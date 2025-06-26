@@ -9,7 +9,7 @@ Celem gry jest wykonanie zdjęcia czterem ustalonym modelom samolotu. Gracz wygr
 
 1. Utwórz swoją kopię repozytorium.
 2. Otwórz folder w Unity (najlepiej 2022), jako projekt. Ewentualnie możesz utworzyć projekt, a następnie przekopiować do niego odpowiednie foldery z tego repozytorium.
-3. Folder Assets/Models musi zostać uzupełnione o odpowiednie modele. Ze względu na rozmiar, nie mogły się one znaleźć w faktycznym repozytorium.
+3. Folder Assets/Models musi zostać utworzony i uzupełniony o odpowiednie modele. Ze względu na rozmiar, nie mogły się one znaleźć w faktycznym repozytorium.
 3. Zbuduj projekt do wybranego folderu.
 4. W tym samym folderze utwórz kopię "Assets/Python".
 5. Uruchom plik "MGU Project", znajdujący się w tym folderze.
